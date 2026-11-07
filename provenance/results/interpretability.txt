@@ -1,0 +1,72 @@
+Interpretability export: Yacht, repeat 0, fold 1 training split (n=202). z_i = standardised predictor i:
+   z1 = (LCB position - -2.3584) / 1.5346
+   z2 = (Prismatic coef. - 0.5621) / 0.0228
+   z3 = (Length-displacement - 4.7923) / 0.2491
+   z4 = (Beam-draught - 3.9506) / 0.5612
+   z5 = (Length-beam - 3.1997) / 0.2444
+   z6 = (Froude number - 0.2912) / 0.1022
+   target: resistance = 11.3024 + 15.8217 * (model output)
+   Self-pair nodes (same input twice) are shown in their exact 3-term form a0 + a1*u + a2*u^2,
+   obtained by summing the duplicated basis coefficients; predictions are unchanged.
+
+=== GMDH depth 1 ===
+   L1N1 (inputs: LCB position, Froude number; internal val. MSE 0.0600): -0.588 +0.028*a +0.859*b +0.005*a^2 +0.036*a*b +0.600*b^2
+   L1N2 (input: Froude number only; internal val. MSE 0.0600): -0.591 +0.858*a +0.606*a^2
+   L1N3 (inputs: Length-beam, Froude number; internal val. MSE 0.0606): -0.563 -0.015*a +0.855*b -0.023*a^2 -0.006*a*b +0.599*b^2
+   L1N4 (inputs: Length-displacement, Froude number; internal val. MSE 0.0645): -0.583 -0.025*a +0.855*b -0.007*a^2 -0.049*a*b +0.604*b^2
+   L1N5 (inputs: Beam-draught, Froude number; internal val. MSE 0.0653): -0.605 -0.030*a +0.853*b +0.018*a^2 -0.057*a*b +0.601*b^2
+   L1N6 (inputs: Prismatic coef., Froude number; internal val. MSE 0.0657): -0.553 -0.058*a +0.853*b -0.018*a^2 -0.067*a*b +0.589*b^2
+   final ridge weights: [0.217, -0.046, 0.017, 0.162, 0.2, 0.432], intercept -0.015
+   expanded polynomial in standardised predictors: degree 2, 18 terms
+   10 largest terms:
+        +0.8396  Froude number
+        +0.5852  Froude number^2
+        -0.5800  intercept
+        -0.0291  Prismatic coef. * Froude number
+        -0.0251  Prismatic coef.
+        -0.0115  Beam-draught * Froude number
+        -0.0080  Length-displacement * Froude number
+        +0.0079  LCB position * Froude number
+        -0.0077  Prismatic coef.^2
+        +0.0062  LCB position
+   predictors entering layer 1: ['Beam-draught', 'Froude number', 'LCB position', 'Length-beam', 'Length-displacement', 'Prismatic coef.']
+
+=== GMDH depth 2 ===
+   L1N1 (inputs: LCB position, Froude number; internal val. MSE 0.0600): -0.588 +0.028*a +0.859*b +0.005*a^2 +0.036*a*b +0.600*b^2
+   L1N2 (input: Froude number only; internal val. MSE 0.0600): -0.591 +0.858*a +0.606*a^2
+   L1N3 (inputs: Length-beam, Froude number; internal val. MSE 0.0606): -0.563 -0.015*a +0.855*b -0.023*a^2 -0.006*a*b +0.599*b^2
+   L1N4 (inputs: Length-displacement, Froude number; internal val. MSE 0.0645): -0.583 -0.025*a +0.855*b -0.007*a^2 -0.049*a*b +0.604*b^2
+   L1N5 (inputs: Beam-draught, Froude number; internal val. MSE 0.0653): -0.605 -0.030*a +0.853*b +0.018*a^2 -0.057*a*b +0.601*b^2
+   L1N6 (inputs: Prismatic coef., Froude number; internal val. MSE 0.0657): -0.553 -0.058*a +0.853*b -0.018*a^2 -0.067*a*b +0.589*b^2
+   L2N1 (inputs: L1N1, L1N6; internal val. MSE 0.0069): -0.298 +0.407*a +0.265*b +0.046*a^2 +0.059*a*b +0.192*b^2
+   L2N2 (inputs: L1N5, L1N6; internal val. MSE 0.0077): -0.295 +0.336*a +0.339*b +0.080*a^2 +0.104*a*b +0.114*b^2
+   L2N3 (inputs: L1N2, L1N6; internal val. MSE 0.0079): -0.295 +0.397*a +0.274*b +0.035*a^2 +0.067*a*b +0.195*b^2
+   L2N4 (inputs: L1N3, L1N6; internal val. MSE 0.0081): -0.297 +0.399*a +0.272*b +0.048*a^2 +0.069*a*b +0.182*b^2
+   L2N5 (inputs: L1N4, L1N6; internal val. MSE 0.0087): -0.296 +0.367*a +0.307*b +0.053*a^2 +0.093*a*b +0.151*b^2
+   L2N6 (input: L1N6 only; internal val. MSE 0.0094): -0.282 +0.686*a +0.285*a^2
+   final ridge weights: [0.275, 0.228, 0.116, 0.133, 0.187, 0.063], intercept +0.000
+   expanded polynomial in standardised predictors: degree 4, 87 terms
+   10 largest terms:
+        -0.5874  intercept
+        +0.4203  Froude number^2
+        +0.3007  Froude number^3
+        +0.2913  Froude number
+        +0.1044  Froude number^4
+        -0.0384  Prismatic coef. * Froude number^2
+        -0.0265  Prismatic coef. * Froude number
+        -0.0167  Prismatic coef. * Froude number^3
+        -0.0051  Prismatic coef.^2 * Froude number
+        -0.0049  Prismatic coef.
+   predictors entering layer 1: ['Beam-draught', 'Froude number', 'LCB position', 'Length-beam', 'Length-displacement', 'Prismatic coef.']
+
+=== EBM term importances (same split) ===
+   0.7772  Froude number
+   0.0326  Prismatic coef. & Froude number
+   0.0255  Prismatic coef.
+   0.0228  LCB position & Froude number
+   0.0208  Beam-draught & Froude number
+   0.0193  LCB position
+   0.0133  Length-beam & Froude number
+   0.0132  Length-beam
+   0.0083  Beam-draught
+   0.0060  Length-displacement & Froude number
