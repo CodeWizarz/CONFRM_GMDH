@@ -8,6 +8,8 @@ version = "0.1.0"
 description = "Reproducible code and archived outputs for a GMDH conformal prediction revision"
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
+license = "MIT"
+authors = [{ name = "CodeWizarz" }]
 dependencies = [
   "numpy>=1.26,<3",
   "pandas>=2.1,<3",

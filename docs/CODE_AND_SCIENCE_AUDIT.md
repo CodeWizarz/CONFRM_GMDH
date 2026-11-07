@@ -38,9 +38,10 @@ author review before treating the repository or manuscript as publication-ready.
    The committed lock resolves a current Python 3.12 environment, not the exact
    Colab environment from the report. XGBoost also requires the system OpenMP
    runtime on macOS.
-8. **License and citation metadata require author input.** No license or author
-   identity has been invented. Complete `CITATION.cff` and choose a license
-   after confirming rights and journal policy.
+8. **License and software citation choices.** The repository uses the MIT
+   license and cites the software under the supplied GitHub handle
+   `CodeWizarz`; update the copyright holder or citation if the rights holder or
+   preferred author name differs.
 
 The supplied analysis report claims corrected resampled t-tests for the split
 comparisons. Review the exact test formulation, degrees of freedom, and

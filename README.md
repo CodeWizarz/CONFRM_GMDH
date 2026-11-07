@@ -87,7 +87,6 @@ that a new run matches the manuscript.
 
 ## Before repository publication
 
-Review `docs/CODE_AND_SCIENCE_AUDIT.md`, choose a code license, complete
-`CITATION.cff` with the author and publication metadata, and confirm the journal's
-double-blind repository requirements. `LICENSE-NEEDED.md` records the unresolved
-license decision. No GitHub repository was created and no files were pushed.
+Review `docs/CODE_AND_SCIENCE_AUDIT.md` and confirm the journal's double-blind
+repository requirements. The project uses the MIT license and cites the
+software under the supplied GitHub handle.

@@ -1,8 +1,10 @@
 cff-version: 1.2.0
-message: "Complete the author and publication fields before public release."
-title: "[full manuscript title]"
+message: "If you use this software, cite it as follows."
+title: "GMDH conformal prediction revision software"
+type: software
 authors:
-  - family-names: "[author surname]"
-    given-names: "[author given name]"
+  - name: CodeWizarz
 version: 0.1.0
 date-released: 2026-11-07
+license: MIT
+repository-code: "https://github.com/CodeWizarz/CONFRM_GMDH"
