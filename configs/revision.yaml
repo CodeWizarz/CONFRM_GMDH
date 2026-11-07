@@ -1,0 +1,12 @@
+# Values transcribed from the supplied revision script. These parameters define
+# the archived study protocol; changing them creates a new run, not a rerun.
+seed: 42
+alpha: 0.10
+outer_splits: 5
+repeats: 5
+calibration_fraction: 0.18
+gmdh_selected_nodes: 6
+ridge_alpha: 1.0
+gmdh_depths: [1, 2]
+datasets: [Yacht, Energy, Concrete, Airfoil, California]
+pnf_thresholds: [1000, 10000, 100000, 1000000]

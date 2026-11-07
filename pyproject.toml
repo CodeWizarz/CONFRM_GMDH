@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gmdh-conformal-revision"
+version = "0.1.0"
+description = "Reproducible code and archived outputs for a GMDH conformal prediction revision"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+  "numpy>=1.26,<3",
+  "pandas>=2.1,<3",
+  "scipy>=1.11,<2",
+  "scikit-learn>=1.4,<2",
+  "xgboost>=2.0,<4",
+  "interpret>=0.6,<1",
+  "openpyxl>=3.1,<4",
+  "xlrd>=2.0,<3",
+  "matplotlib>=3.8,<4",
+  "sympy>=1.12,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "ruff>=0.8,<1"]
+
+[project.scripts]
+gmdh-conformal = "gmdh_conformal.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gmdh_conformal"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"

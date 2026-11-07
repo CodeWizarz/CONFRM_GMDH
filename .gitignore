@@ -1,0 +1,40 @@
+# Python environments and build output
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Editors, operating systems, secrets
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local/private data and generated outputs. Archived revision provenance is tracked.
+/data/raw/
+/data/private/
+/outputs/
+/figs/
+*.joblib
+*.pkl
+*.pickle
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.pt
+*.onnx
+*.model
+*.log
