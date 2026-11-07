@@ -1,7 +1,8 @@
-# Code and scientific audit notes
+# Scientific and reproducibility notes
 
-This package preserves the supplied methods and outputs. The items below need
-author review before treating the repository or manuscript as publication-ready.
+The package and archived result bundle have been checked. The notes below record
+limits of the supplied experiment and points to preserve when describing its
+methods and findings; they do not represent unfinished implementation tasks.
 
 1. **No immutable data snapshots were supplied.** The scripts retrieve four UCI
    datasets over the network and California Housing through scikit-learn. Record
@@ -42,6 +43,10 @@ author review before treating the repository or manuscript as publication-ready.
    license and cites the software under the supplied GitHub handle
    `CodeWizarz`; update the copyright holder or citation if the rights holder or
    preferred author name differs.
+9. **Review model.** The archived submission identifier and script title point
+   to *Next Research*. Elsevier's [Next journals Guide for Authors](https://www-prod.elsevier.com/subject/next/guide-for-authors)
+   specifies single-anonymized review. The public repository's author identity
+   is therefore visible; this is not a double-anonymized repository.
 
 The supplied analysis report claims corrected resampled t-tests for the split
 comparisons. Review the exact test formulation, degrees of freedom, and

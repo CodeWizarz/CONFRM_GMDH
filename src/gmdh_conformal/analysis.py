@@ -37,7 +37,7 @@ def analyse(args):
     pd.set_option("display.width", 250)
     pd.set_option("display.max_columns", 50)
     order = ["GMDH-d2", "GMDH-d1", "Poly2-Ridge", "Poly2-RidgeCV", "RF", "XGB", "EBM", "CQR-XGB", "CQR-HGB", "MLP"]
-    D = D[D.dataset.isin(DATASETS)] if not args.synthetic else D
+    D = D[D.dataset.isin(DATASETS)]
     nf = D.groupby(["dataset", "rep"]).fold.nunique()
     np_ = P.groupby(["dataset", "rep"]).fold.nunique()
     datasets = tuple(name.strip() for name in args.datasets.split(",") if name.strip()) if args.datasets else DATASETS

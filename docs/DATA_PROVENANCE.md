@@ -17,5 +17,6 @@ the archived result bundle remains the provenance record for the supplied
 numbers. Before formal release, record actual retrieval dates and file checksums
 if the input data are archived or pinned.
 
-The synthetic generator in the original script exists only for smoke testing.
-It is not one of the five study datasets.
+The archived original scripts contain an offline synthetic-data smoke-test
+branch. It is preserved as part of the original source snapshot, is not one of
+the study datasets, and is not exposed by the packaged CLI.

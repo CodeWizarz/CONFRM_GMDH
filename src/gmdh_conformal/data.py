@@ -1,17 +1,10 @@
 """Dataset loading. Public datasets are fetched from their original sources."""
 
-import numpy as np
 import pandas as pd
 
 
-def load_dataset(name: str, synthetic: bool = False):
-    """Load one study dataset; synthetic mode is for offline smoke checks only."""
-    if synthetic:
-        rng = np.random.default_rng(len(name))
-        n = {"California": 3000}.get(name, 400)
-        X = rng.normal(size=(n, 6))
-        y = X[:, 0] ** 2 + X[:, 1] * X[:, 2] + 0.3 * rng.normal(size=n)
-        return X, y
+def load_dataset(name: str):
+    """Load a named study dataset from its documented public source."""
     if name == "Yacht":
         df = pd.read_csv(
             "https://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data",

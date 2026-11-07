@@ -19,7 +19,7 @@ def pnfsens(args):
     os.makedirs(args.output_dir, exist_ok=True)
     rows = []
     for name in args.datasets.split(","):
-        X, y = load_dataset(name, args.synthetic)
+        X, y = load_dataset(name)
         for rep in range(args.repeats):
             kf = KFold(n_splits=N_SPLITS, shuffle=True, random_state=SEED + rep)
             for fold_no, (tr, te) in enumerate(kf.split(X), start=1):

@@ -10,6 +10,7 @@ tests, and result checks. It does not claim new experiment results.
 - `src/gmdh_conformal/`: dataset loaders, metrics, GMDH implementation,
   experiment runner, CLI, and archived-result validator.
 - `configs/revision.yaml`: protocol values transcribed from the supplied script.
+- `.github/workflows/ci.yml`: locked dependency, lint, and test checks on pushes and pull requests.
 - `provenance/originals/`: original script versions copied byte-for-byte.
 - `provenance/results/`: original and follow-up ZIPs, reports, diagnostics,
   extracted split outputs, and figures. These are immutable source results.
@@ -19,13 +20,14 @@ tests, and result checks. It does not claim new experiment results.
 
 ## Local setup on macOS
 
-Install Python 3.12 (3.10–3.13 are supported), then install `uv` using
-`python3.13 -m pip install --user uv` or `brew install uv`:
+Install `uv` using its official macOS installer, then install Python 3.12 with
+`uv` (the project supports Python 3.10–3.13):
 
 ```sh
-export PATH="$(python3.13 -m site --user-base)/bin:$PATH"
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv python install 3.12
 cd /path/to/gmdh-conformal-revision
-uv venv
+uv venv --python 3.12
 uv sync --locked --extra dev
 source .venv/bin/activate
 ```
@@ -67,11 +69,9 @@ gmdh-conformal pnfsens --datasets Yacht,Energy --repeats 1 --output-dir outputs
 
 The detailed analysis writes the corrected resampled comparisons and figures;
 `interpret` exports the Yacht equations and EBM importance values; `pnfsens`
-computes the condition-number sensitivity diagnostics. `--synthetic` is an
-offline software smoke mode only. Synthetic outputs are not study data and
-must never be substituted into manuscript tables. The runner refuses to
-overwrite existing result files; choose a new output directory for each run.
-Public benchmark data are fetched from the sources documented in
+computes the condition-number sensitivity diagnostics. The package runner loads
+only the five named study datasets. It refuses to overwrite existing result
+files; choose a new output directory for each run. Public benchmark data are fetched from the sources documented in
 `docs/DATA_PROVENANCE.md`. California Housing may need a first-run download.
 
 ## Tests
@@ -85,8 +85,11 @@ GMDH fitting, and the completeness and reference checks on the archived result
 bundle. Passing software tests does not validate the statistical claims or prove
 that a new run matches the manuscript.
 
-## Before repository publication
+## Journal review and repository identity
 
-Review `docs/CODE_AND_SCIENCE_AUDIT.md` and confirm the journal's double-blind
-repository requirements. The project uses the MIT license and cites the
-software under the supplied GitHub handle.
+The manuscript code identifies *Next Research*. Elsevier's [Next journals Guide
+for Authors](https://www-prod.elsevier.com/subject/next/guide-for-authors)
+specifies a single-anonymized review process. This public repository identifies
+the GitHub account in its history and citation. The MIT license and software
+citation are provided in the repository root. Review the scientific and
+reproducibility notes in `docs/CODE_AND_SCIENCE_AUDIT.md` before submission.

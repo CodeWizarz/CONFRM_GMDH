@@ -10,9 +10,9 @@ from .data import load_dataset
 from .gmdh import fit_gmdh
 
 
-def interpret(args):
+def interpret():
     name = "Yacht"
-    X, y = load_dataset(name, args.synthetic)
+    X, y = load_dataset(name)
     tr, _ = next(iter(KFold(n_splits=N_SPLITS, shuffle=True, random_state=SEED).split(X)))
     rng = np.random.default_rng(SEED + 10000)
     perm = rng.permutation(len(tr))

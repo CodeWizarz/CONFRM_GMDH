@@ -10,11 +10,11 @@ from .data import load_dataset
 from .experiment import run_fold
 
 
-def run_experiments(datasets=DATASETS, repeats=5, output_dir="outputs", synthetic=False):
+def run_experiments(datasets=DATASETS, repeats=5, output_dir="outputs"):
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     for name in datasets:
-        X, y = load_dataset(name, synthetic=synthetic)
+        X, y = load_dataset(name)
         for rep in range(repeats):
             fold_path = out / f"folds_{name}_r{rep}.csv"
             pnf_path = out / f"pnf_{name}_r{rep}.csv"
